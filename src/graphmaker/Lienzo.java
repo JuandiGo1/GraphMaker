@@ -24,7 +24,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
     public static int x = 0;
     public static int y = 0;
     public static Point p1, p2;
-    int n=0;
+    int n = 0;
 
     public Lienzo() {
         this.Nodos = new ArrayList<>();
@@ -56,7 +56,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         n++;
-        System.out.println("cp: "+(n));
+        System.out.println("cp: " + (n));
         if (e.getButton() == 1) {
             if (Maker.vertice.isSelected()) {
                 x = e.getX() - 20;
@@ -66,19 +66,21 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                 Maker.obl.setEnabled(false);
             } else if (Maker.arista.isSelected()) {
                 for (vertices n : getNodos()) {
-                    if (new Rectangle(n.getX() - 20, n.getY() - 20, n.d, n.d).contains(e.getPoint())) {
+                    if (new Rectangle(n.getX(), n.getY(), n.d+10, n.d+10).contains(e.getPoint())) {
                         System.out.println("SI ESTÁ CONTENIDO");
                         if (p1 == null) {
                             p1 = new Point(n.getX(), n.getY());
                             System.out.println("P1 " + p1.x);
+                            Maker.estado.setText("Vertice inicial seleccionado");
                         } else {
                             p2 = new Point(n.getX(), n.getY());
+                            Maker.estado.setText("Vertice final seleccionado");
                             System.out.println("P2:" + p2.x);
-//                            Conectar v2 = new Conectar();
-//                            v2.setVisible(true);
-                            getEnlaces().add(new aristas(p1.x, p1.y, p2.x, p2.y, 1));
-                           // repaint();
-                           Maker.linea(p1.x, p1.y, p2.x, p2.y);
+                            Conectar v2 = new Conectar(p1,p2);
+                            v2.setVisible(true);
+//                            getEnlaces().add(new aristas(p1.x, p1.y, p2.x, p2.y, 1));
+                            //repaint();
+
                             System.out.println("YA PINTO ESA MONDA");
                             p1 = null;
                             p2 = null;

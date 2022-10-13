@@ -4,6 +4,9 @@
  */
 package graphmaker;
 
+import static graphmaker.Maker.obl;
+import java.awt.Point;
+
 /**
  *
  * @author ASUS TUF GAMING F15
@@ -13,8 +16,12 @@ public class Conectar extends javax.swing.JFrame {
     /**
      * Creates new form Conectar
      */
-    public Conectar() {
+    Point pInicio, pfin;
+
+    public Conectar(Point p1, Point p2) {
         initComponents();
+        pInicio = p1;
+        pfin = p2;
     }
 
     /**
@@ -32,7 +39,12 @@ public class Conectar extends javax.swing.JFrame {
         peso = new javax.swing.JTextField();
         crear = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusable(false);
+        setUndecorated(true);
+        setResizable(false);
+        setType(java.awt.Window.Type.UTILITY);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -100,14 +112,21 @@ public class Conectar extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
-       if(peso.getText().isEmpty()){
-           Lienzo.getEnlaces().add(new aristas(Lienzo.p1.x, Lienzo.p1.y, Lienzo.p2.x, Lienzo.p2.y, 1));
-       }else{
-           Lienzo.getEnlaces().add(new aristas(Lienzo.p1.x, Lienzo.p1.y, Lienzo.p2.x, Lienzo.p2.y, Integer.parseInt(peso.getText())));
-       }
+        if (peso.getText().isEmpty()) {
+            Lienzo.getEnlaces().add(new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, 1));
+        } else {
+            int cost=Integer.parseInt(peso.getText());
+            aristas a= new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost);
+            System.out.println(a.costo);
+            Lienzo.getEnlaces().add(new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost));
+            
+        }
+        obl.repaint();
+        this.dispose();
     }//GEN-LAST:event_crearActionPerformed
 
     /**
@@ -140,7 +159,7 @@ public class Conectar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Conectar().setVisible(true);
+                //new Conectar().setVisible(true);
             }
         });
     }

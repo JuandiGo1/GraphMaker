@@ -4,6 +4,7 @@
  */
 package graphmaker;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -31,7 +32,12 @@ public class vertices {
     }
 
     public void pintar(Graphics g) {
-        g.drawOval(getX(), getY(), d, d);
+        //g.drawOval(getX(), getY(), d, d);
+        g.setColor(Color.black);
+        g.fillOval(getX(), getY(), d, d);
+        g.setColor(Color.WHITE);
+        g.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
+        g.drawString(name, getX()+5, getY()+20);
     }
 
     public int getId() {
