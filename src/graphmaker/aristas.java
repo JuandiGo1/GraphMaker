@@ -4,8 +4,10 @@
  */
 package graphmaker;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 /**
  *
@@ -30,10 +32,13 @@ public class aristas {
     }
 
     public void pintar(Graphics g) {
-        g.setColor(Color.black);
-        g.drawLine(ix, iy, fx, fy);
-        g.setColor(Color.red);
-        g.setFont(new java.awt.Font("Segoe UI Black", 0, 14));
+        Graphics2D g2d = (Graphics2D)g;
+        BasicStroke grosor1 = new BasicStroke(3);
+        g2d.setStroke(grosor1);
+        g2d.setColor(Color.black);
+        g2d.drawLine(ix, iy, fx, fy);
+        g.setColor(Color.blue);
+        g.setFont(new java.awt.Font("Segoe UI Black", 0, 15));
         if (ix > fx && iy > fy) {
             g.drawString("" + costo, (ix - 20) - Math.abs(ix - fx) / 2, (iy - 20) - Math.abs(iy - fy) / 2);
         }

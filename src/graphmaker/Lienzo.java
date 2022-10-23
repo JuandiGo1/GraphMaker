@@ -6,11 +6,13 @@ package graphmaker;
 
 import static graphmaker.crear.name;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -25,6 +27,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
     public static int y = 0;
     public static Point p1, p2;
     int n = 0;
+    Image imagen;
 
     public Lienzo() {
         this.Nodos = new ArrayList<>();
@@ -42,6 +45,9 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
 
     @Override
     public void paint(Graphics g) {
+        imagen = new ImageIcon(getClass().getResource("mapa.png")).getImage();
+        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
         super.paint(g);
         for (aristas a : getEnlaces()) {
             a.pintar(g);
