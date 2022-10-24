@@ -17,11 +17,13 @@ public class Conectar extends javax.swing.JFrame {
      * Creates new form Conectar
      */
     Point pInicio, pfin;
-
-    public Conectar(Point p1, Point p2) {
+    vertices V1, V2;
+    public Conectar(Point p1, Point p2, vertices v1, vertices v2) {
         initComponents();
         pInicio = p1;
         pfin = p2;
+        V1=v1;
+        V2=v2;
     }
 
     /**
@@ -117,12 +119,18 @@ public class Conectar extends javax.swing.JFrame {
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
         if (peso.getText().isEmpty()) {
-            Lienzo.getEnlaces().add(new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, 1));
+            aristas nueva = new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, 1,V1,V2); //Si no hay valor asigna 1
+            Lienzo.getEnlaces().add(nueva);
+            V1.conexiones.add(nueva);
+            V2.conexiones.add(nueva);
         } else {
             int cost=Integer.parseInt(peso.getText());
-            aristas a= new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost);
-            System.out.println(a.costo);
-            Lienzo.getEnlaces().add(new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost));
+            aristas nueva= new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost,V1,V2);
+            V1.conexiones.add(nueva);
+            V1.ady.add(V2);
+            V2.conexiones.add(nueva);
+            V2.ady.add(V1);
+            Lienzo.getEnlaces().add(new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost,V1,V2));
             
         }
         obl.repaint();

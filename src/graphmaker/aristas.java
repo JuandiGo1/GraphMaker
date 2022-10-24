@@ -20,9 +20,9 @@ public class aristas {
     int costo;
     int ix, iy, fx, fy; //Coor inicio, coor final
 
-    public aristas(int ix, int iy, int fx, int fy, int costo) {
-//        this.inicio = inicio;
-//        this.fin = fin;
+    public aristas(int ix, int iy, int fx, int fy, int costo, vertices in, vertices out) {
+        this.inicio = in;
+        this.fin = out;
         this.costo = costo;
         this.ix = ix + 20;
         this.iy = iy + 20;

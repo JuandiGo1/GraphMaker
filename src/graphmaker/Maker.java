@@ -40,36 +40,17 @@ public class Maker extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        vertice = new javax.swing.JRadioButton();
-        arista = new javax.swing.JRadioButton();
         ver = new Lienzo();
         jLabel1 = new javax.swing.JLabel();
         estado = new javax.swing.JLabel();
+        vertice = new javax.swing.JToggleButton();
+        arista = new javax.swing.JToggleButton();
+        floyd = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Maker");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
-
-        buttonGroup1.add(vertice);
-        vertice.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        vertice.setText("Vertices");
-        vertice.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        vertice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verticeActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(arista);
-        arista.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        arista.setText("Aristas");
-        arista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        arista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aristaActionPerformed(evt);
-            }
-        });
 
         ver.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         ver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -94,24 +75,61 @@ public class Maker extends javax.swing.JFrame {
 
         estado.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
 
+        buttonGroup1.add(vertice);
+        vertice.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        vertice.setText("Add Vertice");
+        vertice.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        vertice.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        vertice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verticeActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(arista);
+        arista.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        arista.setText("Add Arista");
+        arista.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        arista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aristaActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(floyd);
+        floyd.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        floyd.setText("Floyd Warshall");
+        floyd.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        floyd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floydActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(vertice, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(arista, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(floyd, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(323, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(vertice, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(arista, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(467, Short.MAX_VALUE))
+                    .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,9 +138,10 @@ public class Maker extends javax.swing.JFrame {
                 .addComponent(ver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vertice, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(arista, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(vertice, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(arista, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(floyd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,17 +167,22 @@ public class Maker extends javax.swing.JFrame {
 
     }
     
-    private void verticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verticeActionPerformed
-        estado.setText("Agregar vértices");
-    }//GEN-LAST:event_verticeActionPerformed
-
-    private void aristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aristaActionPerformed
-        estado.setText("Conectar vértices");
-    }//GEN-LAST:event_aristaActionPerformed
-
     private void verMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_verMouseClicked
+
+    private void verticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verticeActionPerformed
+        estado.setText("Clickea el espacio de trabajo para agregar un vértice.");
+    }//GEN-LAST:event_verticeActionPerformed
+
+    private void aristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aristaActionPerformed
+        estado.setText("Selecciona el vertice inicial y final de la arista.");
+    }//GEN-LAST:event_aristaActionPerformed
+
+    private void floydActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floydActionPerformed
+        estado.setText("Clickea el vertice inicial y final.");
+        
+    }//GEN-LAST:event_floydActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,11 +220,12 @@ public class Maker extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JRadioButton arista;
+    public static javax.swing.JToggleButton arista;
     private javax.swing.ButtonGroup buttonGroup1;
     public static javax.swing.JLabel estado;
+    public static javax.swing.JToggleButton floyd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel ver;
-    public static javax.swing.JRadioButton vertice;
+    public static javax.swing.JToggleButton vertice;
     // End of variables declaration//GEN-END:variables
 }

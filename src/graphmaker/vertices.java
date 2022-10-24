@@ -16,6 +16,8 @@ public class vertices {
 
     private String name;
     ArrayList<aristas> conexiones = new ArrayList<aristas>();
+    boolean vst; //visitado
+    ArrayList<vertices> ady = new ArrayList<vertices>(); //adyaciente
     private int id;
     int d = 40;
     int x, y;

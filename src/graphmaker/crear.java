@@ -159,12 +159,15 @@ public class crear extends javax.swing.JFrame {
         Maker.obl.setEnabled(true);
     }//GEN-LAST:event_cancelarActionPerformed
 
+//    ***************  PINTAR Y CREAR VERTICE ******************
+    
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
         if (name.getText().isEmpty()) {
             info.setText("¡FAVOR INGRESAR NOMBRE!");
         } else {
             Maker.graf.aumentar();
             Lienzo.getNodos().add(new vertices(name.getText(), Maker.graf.nvertices, xv, yv));
+            Maker.graf.vertices.add(new vertices(name.getText(), Maker.graf.nvertices, xv, yv));
             System.out.println(name.getText());
             obl.repaint();
             //vertices t = new vertices(name.getText(), Maker.graf.nvertices, xv, yv);
