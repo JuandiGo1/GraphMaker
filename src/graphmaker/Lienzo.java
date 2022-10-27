@@ -65,6 +65,9 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
         }
         return false;
     }
+    
+    
+    
 
     @Override
     public void paint(Graphics g) {
@@ -137,7 +140,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
 //                            getEnlaces().add(new aristas(p1.x, p1.y, p2.x, p2.y, 1));
                             //repaint();
 
-                            System.out.println("YA PINTO");
+                            System.out.println(Maker.graf.conexiones.size());
                             p1 = null;
                             p2 = null;
                             return;
@@ -166,12 +169,13 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                             
                             for (vertices act : Maker.graf.caminoMinimo) {
                                 System.out.println(act.getName());
-//                                for(aristas a: act.conexiones){
-//                                    if (a.inicio.paso==true && a.fin.paso==true){
-//                                        a.color= Color.yellow;
-//                                        System.out.println("AMARILLO");
-//                                    }
-//                                }
+                                for(aristas a: act.conexiones){
+                                    System.out.println(a.inicio.paso +" : "+ a.fin.paso);
+                                    if (a.inicio.paso==true && a.fin.paso==true){
+                                        a.color= Color.yellow;
+                                        System.out.println("AMARILLO");
+                                    }
+                                }
                             }
                             obl.repaint();
 
@@ -181,7 +185,14 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                         }
                     }
                 }
-            }
+            }else if(Maker.editarV.isSelected()){
+                if (encima(e.getPoint())) {
+                    vertices actual= Maker.graf.buscar(e.getX() - 20, e.getY() - 20);
+                    editVertice edit = new editVertice(actual);
+                    edit.setVisible(true);
+                }
+                   repaint(); 
+                }
 
         }
 

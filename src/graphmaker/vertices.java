@@ -22,6 +22,7 @@ public class vertices {
     ArrayList<vertices> ady = new ArrayList<vertices>(); //adyaciente
     private int id;
     boolean paso = false;
+    private String descrip;
     int d = 40;
     int x, y;
 
@@ -34,6 +35,10 @@ public class vertices {
 
     public String getName() {
         return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void pintar(Graphics g) {
@@ -50,6 +55,14 @@ public class vertices {
         g.drawString(name, getX()+5, getY()+20);
     }
 
+    public String getDescrip() {
+        return this.descrip;
+    }
+    
+    public void setDescrip(String S) {
+        this.descrip = S;
+    }
+    
     public int getId() {
         return id;
     }

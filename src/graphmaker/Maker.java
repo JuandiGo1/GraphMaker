@@ -55,7 +55,7 @@ public class Maker extends javax.swing.JFrame {
         mostrar = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         floyd = new javax.swing.JToggleButton();
-        eliminarV = new javax.swing.JToggleButton();
+        editarV = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Maker");
@@ -178,13 +178,13 @@ public class Maker extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(eliminarV);
-        eliminarV.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        eliminarV.setText("Elim vertice");
-        eliminarV.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        eliminarV.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(editarV);
+        editarV.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        editarV.setText("Edit vertice");
+        editarV.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        editarV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarVActionPerformed(evt);
+                editarVActionPerformed(evt);
             }
         });
 
@@ -218,7 +218,7 @@ public class Maker extends javax.swing.JFrame {
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                             .addComponent(eliminarA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(eliminarV, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(editarV, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(enumeracion, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 9, Short.MAX_VALUE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -245,7 +245,7 @@ public class Maker extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(eliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(eliminarV, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(editarV, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(floyd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -289,7 +289,7 @@ public class Maker extends javax.swing.JFrame {
     }//GEN-LAST:event_aristaActionPerformed
 
     private void eliminarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarAActionPerformed
-        estado.setText("Selecciona el vertice a eliminar.");
+        estado.setText("Selecciona la arista a eliminar.");
 
     }//GEN-LAST:event_eliminarAActionPerformed
 
@@ -302,9 +302,9 @@ public class Maker extends javax.swing.JFrame {
         
     }//GEN-LAST:event_floydActionPerformed
 
-    private void eliminarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eliminarVActionPerformed
+    private void editarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarVActionPerformed
+        estado.setText("Selecciona el vertice a editar .");
+    }//GEN-LAST:event_editarVActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,8 +344,8 @@ public class Maker extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JToggleButton arista;
     private javax.swing.ButtonGroup buttonGroup1;
+    public static javax.swing.JToggleButton editarV;
     public static javax.swing.JToggleButton eliminarA;
-    public static javax.swing.JToggleButton eliminarV;
     public static javax.swing.JComboBox<String> enumeracion;
     public static javax.swing.JLabel estado;
     public static javax.swing.JToggleButton floyd;
@@ -354,7 +354,7 @@ public class Maker extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea mostrar;
+    public static javax.swing.JTextArea mostrar;
     private javax.swing.JPanel muestra;
     private javax.swing.JPanel ver;
     public static javax.swing.JToggleButton vertice;

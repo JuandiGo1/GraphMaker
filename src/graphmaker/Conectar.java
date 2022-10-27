@@ -131,7 +131,7 @@ public class Conectar extends javax.swing.JFrame {
             V1.ady.add(V2);
             V2.conexiones.add(nueva);
             V2.ady.add(V1);
-            Lienzo.getEnlaces().add(new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost,V1,V2, Color.black));
+            Lienzo.getEnlaces().add(nueva);
             
         }
         obl.repaint();
