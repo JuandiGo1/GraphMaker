@@ -58,6 +58,7 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        setResizable(false);
 
         creditos.setBackground(new java.awt.Color(180, 205, 230));
 

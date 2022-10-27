@@ -6,6 +6,7 @@ package graphmaker;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 /**
  *
@@ -362,6 +363,8 @@ public class Maker extends javax.swing.JFrame {
     private void floydActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floydActionPerformed
         estado.setText("Clickea el vertice inicial y final.");
         muestra.setVisible(true);
+        obl.resetFloyd();
+        
 
     }//GEN-LAST:event_floydActionPerformed
 
@@ -374,6 +377,7 @@ public class Maker extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Inicio otro = new Inicio();
         otro.setVisible(true);
+        graf = new Grafo();
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 

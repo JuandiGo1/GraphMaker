@@ -31,7 +31,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
     public static int y = 0;
     public static Point p1, p2, P1, P2, P3, P4;
     int n = 0;
-    ArrayList<aristas> temp= new ArrayList<>();
+    ArrayList<aristas> temp = new ArrayList<>();
     Image imagen;
 
     public Lienzo() {
@@ -56,17 +56,17 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
         }
         return null;
     }
-    
-    public void resetFloyd(){
-        for(vertices v: graf.caminoMinimo){
-            v.paso=false;
+
+    public void resetFloyd() {
+        for (vertices v : graf.caminoMinimo) {
+            v.paso = false;
         }
-        for(aristas a:obl.temp){
+        for (aristas a : obl.temp) {
             a.color = Color.BLACK;
         }
-        
-        graf.caminoMinimo.clear();
-        obl.temp.clear();
+
+        graf.caminoMinimo= new ArrayList<>();
+        obl.temp=new ArrayList<>();
     }
 
     private boolean encima(Point p) {
@@ -110,36 +110,36 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                     switch (Maker.enumeracion.getSelectedIndex()) {
                         case 0:
                             Maker.graf.aumentar();
-                            int n=1;
-                            String name=String.valueOf((char) (Maker.graf.nvertices + 64));
-                            if(graf.existe(name)){
-                               do{
-                                   name = String.valueOf((char) (Maker.graf.nvertices + (64+n)));
-                                   n++;
-                               }while(graf.existe(name));
-                               Maker.graf.vertices.add(new vertices(name, Maker.graf.nvertices, x, y));
-                               
-                            }else{
+                            int n = 1;
+                            String name = String.valueOf((char) (Maker.graf.nvertices + 64));
+                            if (graf.existe(name)) {
+                                do {
+                                    name = String.valueOf((char) (Maker.graf.nvertices + (64 + n)));
+                                    n++;
+                                } while (graf.existe(name));
+                                Maker.graf.vertices.add(new vertices(name, Maker.graf.nvertices, x, y));
+
+                            } else {
                                 Maker.graf.vertices.add(new vertices(String.valueOf((char) (Maker.graf.nvertices + 64)), Maker.graf.nvertices, x, y));
                             }
-                            
+
                             obl.repaint();
                             break;
                         case 1:
                             Maker.graf.aumentar();
                             String name1 = Integer.toString(Maker.graf.nvertices);
-                            int n1=1;
-                            if(graf.existe(name1)){
-                               do{
-                                   name1 = Integer.toString(Maker.graf.nvertices+n1);
-                                   n1++;
-                               }while(graf.existe(name1));
-                               Maker.graf.vertices.add(new vertices(name1, Maker.graf.nvertices, x, y));
-                               
-                            }else{
+                            int n1 = 1;
+                            if (graf.existe(name1)) {
+                                do {
+                                    name1 = Integer.toString(Maker.graf.nvertices + n1);
+                                    n1++;
+                                } while (graf.existe(name1));
+                                Maker.graf.vertices.add(new vertices(name1, Maker.graf.nvertices, x, y));
+
+                            } else {
                                 Maker.graf.vertices.add(new vertices(Integer.toString(Maker.graf.nvertices), Maker.graf.nvertices, x, y));
                             }
-                            
+
                             obl.repaint();
                             break;
                         case 2:
@@ -179,7 +179,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                             if (permitir) {
                                 Conectar addAris = new Conectar(p1, p2, v1, v2);
                                 addAris.setVisible(true);
-                            }else{
+                            } else {
                                 JOptionPane.showMessageDialog(null, "Ya hay una conexión entre los nodos elegidos", "YA EXISTE", JOptionPane.WARNING_MESSAGE);
                             }
 
@@ -191,7 +191,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                     }
                 }
             } else if (Maker.floyd.isSelected()) {
-                
+
                 Maker.estado.setText("Clickea el vertice inicial y final.");
                 for (vertices n : getNodos()) {
                     if (new Rectangle(n.getX(), n.getY(), n.d + 10, n.d + 10).contains(e.getPoint())) {
@@ -205,18 +205,18 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                             //Maker.graf.MatrizDistancias();
                             vertices v1 = BuscarVertice(P1.x, P1.y);
                             vertices v2 = BuscarVertice(P2.x, P2.y);
-                            
+
                             System.out.println("Vertice inicial: " + v1.getName());
                             System.out.println("Vertice final: " + v2.getName());
                             Maker.graf.MatrizDeCostos();
                             //System.out.println(Maker.graf.FloydWarshall(v1, v2));
-                            v1.paso=true;
+                            v1.paso = true;
                             Maker.estado.setText(Maker.graf.FloydWarshall(v1, v2));
                             Maker.graf.printMatrix(Maker.graf.Distancia);
 
                             for (vertices act : Maker.graf.caminoMinimo) {
-                                
-                                System.out.println("LIST NODOS CAMINO: "+act.getName());
+
+                                System.out.println("LIST NODOS CAMINO: " + act.getName());
                                 for (aristas a : act.conexiones) {
                                     System.out.println(a.inicio.paso + " : " + a.fin.paso);
                                     if (a.inicio.paso == true && a.fin.paso == true) {
@@ -228,7 +228,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                             }
                             obl.repaint();
 
-                            graf.caminoMinimo=new ArrayList<>();
+                            graf.caminoMinimo = new ArrayList<>();
                             P1 = null;
                             P2 = null;
                             return;
@@ -242,7 +242,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                     edit.setVisible(true);
                 }
                 repaint();
-            }else if(Maker.eliminarA.isSelected()){
+            } else if (Maker.eliminarA.isSelected()) {
                 Maker.estado.setText("Clickea el vertice inicial y final.");
                 for (vertices n : getNodos()) {
                     if (new Rectangle(n.getX(), n.getY(), n.d + 10, n.d + 10).contains(e.getPoint())) {
@@ -256,11 +256,20 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                             //Maker.graf.MatrizDistancias();
                             vertices v1 = BuscarVertice(P3.x, P3.y);
                             vertices v2 = BuscarVertice(P4.x, P4.y);
-                            
+
                             System.out.println("Vertice inicial: " + v1.getName());
                             System.out.println("Vertice final: " + v2.getName());
-                            obl.getEnlaces().remove(graf.buscarArist(v1, v2));
-                            Maker.estado.setText("Conexión entre "+v1.getName()+ " y "+v2.getName()+" eliminada");
+                            aristas aEliminar = graf.buscarArist(v1, v2);
+                            if (aEliminar != null) {
+                                obl.getEnlaces().remove(aEliminar);
+                                v1.conexiones.remove(aEliminar);
+                                v2.conexiones.remove(aEliminar);
+                                Maker.estado.setText("Conexión entre " + v1.getName() + " y " + v2.getName() + " eliminada");
+                            } else {
+
+                                Maker.estado.setText("No existe conexión entre " + v1.getName() + " y " + v2.getName());
+                            }
+
                             obl.repaint();
 
                             P3 = null;

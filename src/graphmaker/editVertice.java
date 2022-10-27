@@ -183,7 +183,7 @@ public class editVertice extends javax.swing.JFrame {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
        if(!newNombre.getText().isEmpty()){
-           v.setName(newNombre.getText()); 
+           v.setName(newNombre.getText().trim()); 
            v.setDescrip(descrip.getText());
            info.setText("GUARDADO EXITOSO");
        }else{
