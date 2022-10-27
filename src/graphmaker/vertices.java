@@ -22,7 +22,7 @@ public class vertices {
     ArrayList<vertices> ady = new ArrayList<vertices>(); //adyaciente
     private int id;
     boolean paso = false;
-    private String descrip;
+    private String descrip="";
     int d = 40;
     int x, y;
 

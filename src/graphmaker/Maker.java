@@ -21,12 +21,13 @@ public class Maker extends javax.swing.JFrame {
     public static Graphics h;
     public Maker() {
         initComponents();
-        
-        obl.setSize(683, 515);
-        obl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0,  153), 5, true));
+        this.getContentPane().setBackground(new Color(245, 239, 230));
+        obl.setSize(708, 516);
+        obl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(6, 40, 61), 5, true));
         //obl.setBackground(new java.awt.Color(204, 204, 255));
         ver.add(obl);
-        h = this.getGraphics();
+        mostrar.setTabSize(4);
+        muestra.setVisible(false);
         
         
     }
@@ -74,52 +75,65 @@ public class Maker extends javax.swing.JFrame {
         ver.setLayout(verLayout);
         verLayout.setHorizontalGroup(
             verLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
+            .addGap(0, 707, Short.MAX_VALUE)
         );
         verLayout.setVerticalGroup(
             verLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 515, Short.MAX_VALUE)
         );
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(6, 40, 61));
         jLabel1.setText("Estado");
 
-        estado.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        estado.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
 
+        vertice.setBackground(new java.awt.Color(6, 40, 61));
         buttonGroup1.add(vertice);
         vertice.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        vertice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plus.png"))); // NOI18N
+        vertice.setForeground(new java.awt.Color(255, 255, 255));
+        vertice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plus (2).png"))); // NOI18N
         vertice.setText("Add Vertice");
         vertice.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        vertice.setBorderPainted(false);
         vertice.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        vertice.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plus (1).png"))); // NOI18N
-        vertice.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plus.png"))); // NOI18N
+        vertice.setDisabledIcon(null);
+        vertice.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plus (1).png"))); // NOI18N
         vertice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verticeActionPerformed(evt);
             }
         });
 
+        arista.setBackground(new java.awt.Color(6, 40, 61));
         buttonGroup1.add(arista);
-        arista.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        arista.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        arista.setForeground(new java.awt.Color(255, 255, 255));
         arista.setText("Add Arista");
         arista.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        arista.setBorderPainted(false);
         arista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aristaActionPerformed(evt);
             }
         });
 
+        eliminarA.setBackground(new java.awt.Color(6, 40, 61));
         buttonGroup1.add(eliminarA);
         eliminarA.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        eliminarA.setForeground(new java.awt.Color(255, 255, 255));
         eliminarA.setText("Elim Arista");
-        eliminarA.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        eliminarA.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.red, null, null));
+        eliminarA.setBorderPainted(false);
         eliminarA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarAActionPerformed(evt);
             }
         });
 
+        enumeracion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        enumeracion.setForeground(new java.awt.Color(6, 40, 61));
         enumeracion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A, B... Z", "1, 2, 3...", "Propio" }));
         enumeracion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         enumeracion.addActionListener(new java.awt.event.ActionListener() {
@@ -129,16 +143,20 @@ public class Maker extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(6, 40, 61));
         jLabel2.setText("ENUMERACIÓN DE VERTICES");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(6, 40, 61));
         jLabel3.setText("FUNCIONES");
+
+        muestra.setBackground(new java.awt.Color(245, 239, 230));
 
         mostrar.setEditable(false);
         mostrar.setColumns(20);
-        mostrar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        mostrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        mostrar.setForeground(new java.awt.Color(6, 40, 61));
         mostrar.setRows(5);
-        mostrar.setEnabled(false);
         jScrollPane1.setViewportView(mostrar);
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
@@ -149,39 +167,44 @@ public class Maker extends javax.swing.JFrame {
         muestraLayout.setHorizontalGroup(
             muestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(muestraLayout.createSequentialGroup()
-                .addGroup(muestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(muestraLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(muestraLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(muestraLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         muestraLayout.setVerticalGroup(
             muestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(muestraLayout.createSequentialGroup()
-                .addGap(7, 7, 7)
+                .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
         );
 
+        floyd.setBackground(new java.awt.Color(6, 40, 61));
         buttonGroup1.add(floyd);
         floyd.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        floyd.setForeground(new java.awt.Color(255, 255, 255));
         floyd.setText("Floyd Warshall");
         floyd.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        floyd.setBorderPainted(false);
         floyd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 floydActionPerformed(evt);
             }
         });
 
+        editarV.setBackground(new java.awt.Color(6, 40, 61));
         buttonGroup1.add(editarV);
         editarV.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        editarV.setForeground(new java.awt.Color(255, 255, 255));
         editarV.setText("Edit vertice");
         editarV.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        editarV.setBorderPainted(false);
         editarV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarVActionPerformed(evt);
@@ -201,28 +224,31 @@ public class Maker extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(577, 577, 577))
-                            .addComponent(ver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(muestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(24, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(muestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(arista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                                        .addComponent(vertice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(floyd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(eliminarA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(editarV, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(enumeracion, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 9, Short.MAX_VALUE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(arista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(vertice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(floyd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                    .addComponent(eliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(editarV, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(enumeracion, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 23, Short.MAX_VALUE))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,10 +265,10 @@ public class Maker extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(vertice, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)
-                        .addComponent(arista, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(vertice, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(arista, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(eliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(editarV, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -252,7 +278,7 @@ public class Maker extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(enumeracion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
+                        .addGap(33, 33, 33)
                         .addComponent(muestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -299,6 +325,7 @@ public class Maker extends javax.swing.JFrame {
 
     private void floydActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floydActionPerformed
         estado.setText("Clickea el vertice inicial y final.");
+        muestra.setVisible(true);
         
     }//GEN-LAST:event_floydActionPerformed
 

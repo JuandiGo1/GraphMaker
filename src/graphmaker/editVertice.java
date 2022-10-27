@@ -19,6 +19,8 @@ public class editVertice extends javax.swing.JFrame {
     public editVertice(vertices vertice) {
         initComponents();
         this.v = vertice;
+        newNombre.setText(v.getName());
+        descrip.setText(v.getDescrip());
     }
 
     /**
