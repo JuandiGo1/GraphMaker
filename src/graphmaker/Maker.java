@@ -21,14 +21,16 @@ public class Maker extends javax.swing.JFrame {
     public static Graphics h;
 
     public Maker() {
-        initComponents();
         this.getContentPane().setBackground(new Color(245, 239, 230));
         obl.setSize(708, 516);
         obl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(6, 40, 61), 5, true));
         //obl.setBackground(new java.awt.Color(204, 204, 255));
-        ver.add(obl);
+        
+        
+        initComponents();
         mostrar.setTabSize(4);
         muestra.setVisible(false);
+        ver.add(obl);
 
     }
 
@@ -57,6 +59,7 @@ public class Maker extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         floyd = new javax.swing.JToggleButton();
         editarV = new javax.swing.JToggleButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Maker");
@@ -110,9 +113,11 @@ public class Maker extends javax.swing.JFrame {
         buttonGroup1.add(arista);
         arista.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         arista.setForeground(new java.awt.Color(255, 255, 255));
+        arista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/destino.png"))); // NOI18N
         arista.setText("Add Arista");
         arista.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         arista.setBorderPainted(false);
+        arista.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/destino2.png"))); // NOI18N
         arista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aristaActionPerformed(evt);
@@ -121,11 +126,14 @@ public class Maker extends javax.swing.JFrame {
 
         eliminarA.setBackground(new java.awt.Color(6, 40, 61));
         buttonGroup1.add(eliminarA);
-        eliminarA.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        eliminarA.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         eliminarA.setForeground(new java.awt.Color(255, 255, 255));
-        eliminarA.setText("Elim Arista");
+        eliminarA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cancelar.png"))); // NOI18N
+        eliminarA.setText("Del Arista");
+        eliminarA.setToolTipText("Eliminar arista");
         eliminarA.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.red, null, null));
         eliminarA.setBorderPainted(false);
+        eliminarA.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/boton-eliminar (1).png"))); // NOI18N
         eliminarA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarAActionPerformed(evt);
@@ -191,9 +199,11 @@ public class Maker extends javax.swing.JFrame {
         buttonGroup1.add(floyd);
         floyd.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         floyd.setForeground(new java.awt.Color(255, 255, 255));
+        floyd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/conexiones3.png"))); // NOI18N
         floyd.setText("Floyd Warshall");
         floyd.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         floyd.setBorderPainted(false);
+        floyd.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/conexiones87.png"))); // NOI18N
         floyd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 floydActionPerformed(evt);
@@ -202,14 +212,29 @@ public class Maker extends javax.swing.JFrame {
 
         editarV.setBackground(new java.awt.Color(6, 40, 61));
         buttonGroup1.add(editarV);
-        editarV.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        editarV.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         editarV.setForeground(new java.awt.Color(255, 255, 255));
+        editarV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/editar1.png"))); // NOI18N
         editarV.setText("Edit vertice");
+        editarV.setToolTipText("Editar Vertice");
         editarV.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         editarV.setBorderPainted(false);
+        editarV.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/editar (1).png"))); // NOI18N
         editarV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarVActionPerformed(evt);
+            }
+        });
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back_1.png"))); // NOI18N
+        jButton3.setToolTipText("VOLVER ");
+        jButton3.setBorder(null);
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -224,31 +249,35 @@ public class Maker extends javax.swing.JFrame {
                     .addComponent(ver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(muestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(24, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(arista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(arista, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(vertice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(floyd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createSequentialGroup()
                                             .addComponent(eliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(editarV, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(editarV, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
                                     .addComponent(enumeracion, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 23, Short.MAX_VALUE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(muestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(24, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,16 +300,18 @@ public class Maker extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(eliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editarV, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(editarV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(floyd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(enumeracion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addGap(46, 46, 46)
                         .addComponent(muestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -309,16 +340,19 @@ public class Maker extends javax.swing.JFrame {
     private void verticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verticeActionPerformed
         estado.setText("Clickea el espacio de trabajo para agregar un vértice.");
         muestra.setVisible(false);
+        obl.resetFloyd();
     }//GEN-LAST:event_verticeActionPerformed
 
     private void aristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aristaActionPerformed
         estado.setText("Selecciona el vertice inicial y final de la arista.");
         muestra.setVisible(false);
+        obl.resetFloyd();
     }//GEN-LAST:event_aristaActionPerformed
 
     private void eliminarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarAActionPerformed
         estado.setText("Selecciona el vertice final e inicial de la arista a eliminar.");
         muestra.setVisible(false);
+        obl.resetFloyd();
     }//GEN-LAST:event_eliminarAActionPerformed
 
     private void enumeracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enumeracionActionPerformed
@@ -334,7 +368,14 @@ public class Maker extends javax.swing.JFrame {
     private void editarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarVActionPerformed
         estado.setText("Selecciona el vertice a editar .");
         muestra.setVisible(false);
+        obl.resetFloyd();
     }//GEN-LAST:event_editarVActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Inicio otro = new Inicio();
+        otro.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,6 +420,7 @@ public class Maker extends javax.swing.JFrame {
     public static javax.swing.JComboBox<String> enumeracion;
     public static javax.swing.JLabel estado;
     public static javax.swing.JToggleButton floyd;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

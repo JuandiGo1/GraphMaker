@@ -31,6 +31,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
     public static int y = 0;
     public static Point p1, p2, P1, P2, P3, P4;
     int n = 0;
+    ArrayList<aristas> temp= new ArrayList<>();
     Image imagen;
 
     public Lienzo() {
@@ -54,6 +55,18 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
             }
         }
         return null;
+    }
+    
+    public void resetFloyd(){
+        for(vertices v: graf.caminoMinimo){
+            v.paso=false;
+        }
+        for(aristas a:obl.temp){
+            a.color = Color.BLACK;
+        }
+        
+        graf.caminoMinimo.clear();
+        obl.temp.clear();
     }
 
     private boolean encima(Point p) {
@@ -178,7 +191,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                     }
                 }
             } else if (Maker.floyd.isSelected()) {
-                ArrayList<aristas> temp= new ArrayList<>();
+                
                 Maker.estado.setText("Clickea el vertice inicial y final.");
                 for (vertices n : getNodos()) {
                     if (new Rectangle(n.getX(), n.getY(), n.d + 10, n.d + 10).contains(e.getPoint())) {
@@ -214,12 +227,7 @@ public class Lienzo extends javax.swing.JPanel implements MouseListener {
                                 }
                             }
                             obl.repaint();
-//                            for(vertices ver: graf.caminoMinimo){
-//                                ver.paso=false;
-//                            }
-//                            for(aristas a: temp){
-//                                a.color = Color.BLACK;
-//                            }
+
                             graf.caminoMinimo=new ArrayList<>();
                             P1 = null;
                             P2 = null;

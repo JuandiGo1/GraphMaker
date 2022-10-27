@@ -7,6 +7,7 @@ package graphmaker;
 import static graphmaker.Maker.obl;
 import java.awt.Color;
 import java.awt.Point;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -119,6 +120,15 @@ public class Conectar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private static boolean isNumeric(String cadena){
+	try {
+		Integer.parseInt(cadena);
+		return true;
+	} catch (NumberFormatException nfe){
+		return false;
+	}
+}
+    
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
         if (peso.getText().isEmpty()) {
             aristas nueva = new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, 1,V1,V2, Color.black); //Si no hay valor asigna 1
@@ -127,7 +137,9 @@ public class Conectar extends javax.swing.JFrame {
             V1.conexiones.add(nueva);
             V2.conexiones.add(nueva);
             V2.ady.add(V1);
-        } else {
+            obl.repaint();
+            this.dispose();
+        } else if(isNumeric(peso.getText())){
             int cost=Integer.parseInt(peso.getText());
             aristas nueva= new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost,V1,V2, Color.black);
             V1.conexiones.add(nueva);
@@ -135,10 +147,13 @@ public class Conectar extends javax.swing.JFrame {
             V2.conexiones.add(nueva);
             V2.ady.add(V1);
             Lienzo.getEnlaces().add(nueva);
-            
+            obl.repaint();
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "LA ENTRADA DEBE SER NUMÉRICA", "OJITO", JOptionPane.WARNING_MESSAGE);
         }
         obl.repaint();
-        this.dispose();
+        
     }//GEN-LAST:event_crearActionPerformed
 
     /**
