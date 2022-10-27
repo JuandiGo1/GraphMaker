@@ -22,11 +22,11 @@ public class Grafo {
     String Recorrido[][];
     int Distancia[][];
     ArrayList<aristas> ruta = null;
-    ArrayList<vertices> caminoMinimo = new ArrayList<vertices>();
+    ArrayList<vertices> caminoMinimo = new ArrayList<>();
 
     public Grafo() {
-        this.conexiones = new ArrayList<aristas>();
-        this.vertices = new ArrayList<vertices>();
+        this.conexiones = new ArrayList<>();
+        this.vertices = new ArrayList<>();
     }
 
     //Contar cuantos vertices hay
@@ -60,6 +60,7 @@ public class Grafo {
         obl.repaint();
 
     }
+// ***** Buscar vertice por coordenadas *****
 
     public vertices buscar(int x, int y) {
         Rectangle figura = new Rectangle(x - 20, y - 20, 40, 40);
@@ -70,6 +71,50 @@ public class Grafo {
         }
         return null;
     }
+
+    // ***** Buscar vertice por nombre *****
+    public vertices buscar(String S) {
+        for (vertices v : this.vertices) {
+            if (v.getName().equals(S)) {
+                return v;
+            }
+        }
+        return null;
+    }
+    
+    // ***** verificar si ya hay un vertice con ese nombre *****
+    public boolean existe(String S) {
+        for (vertices v : this.vertices) {
+            if (v.getName().equals(S)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // ***** Buscar arista por inicio y fin *****
+    public aristas buscarArist(String inicio, String fin) {
+        for (aristas a : this.conexiones) {
+            if (a.inicio.getName().equals(inicio) || a.fin.getName().equals(inicio)) {
+                if (a.inicio.getName().equals(fin) || a.fin.getName().equals(fin)) {
+                    return a;
+                }
+            }
+        }
+        return null;
+    }
+    
+    public aristas buscarArist(vertices in, vertices fin) {
+        for (aristas a : this.conexiones) {
+            if (a.inicio==in || a.fin==in) {
+                if (a.inicio==fin || a.fin==fin) {
+                    return a;
+                }
+            }
+        }
+        return null;
+    }
+    
 
     public void MatrizDeCostos() {
         Distancia = new int[vertices.size()][vertices.size()];
@@ -124,6 +169,8 @@ public class Grafo {
         int inPos = -1;
         int finPos = -1;
         int INF = 999;
+        caminoMinimo.add(inicio);
+
         for (int k = 0; k < vertices.size(); k++) {
             if (vertices.get(k).equals(inicio)) {
                 inPos = k;
@@ -154,6 +201,10 @@ public class Grafo {
                 finalizado = true;
             } else {
                 Ruta = Ruta + "-->" + Recorrido[inPos][finPos];
+                vertices actual = buscar(Recorrido[inPos][finPos]);
+                actual.paso=true;
+                caminoMinimo.add(actual);
+
                 String tmp = Recorrido[inPos][finPos];
                 for (int i = 0; i < vertices.size(); i++) {
                     if (vertices.get(i).getName().equalsIgnoreCase(tmp)) {

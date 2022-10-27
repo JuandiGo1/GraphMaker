@@ -5,6 +5,7 @@
 package graphmaker;
 
 import static graphmaker.Lienzo.getNodos;
+import static graphmaker.Maker.graf;
 import static graphmaker.Maker.obl;
 import java.awt.Graphics;
 
@@ -71,7 +72,7 @@ public class crear extends javax.swing.JFrame {
             }
         });
 
-        crear.setBackground(new java.awt.Color(0, 102, 102));
+        crear.setBackground(new java.awt.Color(98, 142, 144));
         crear.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
         crear.setForeground(new java.awt.Color(255, 255, 255));
         crear.setText("CREAR");
@@ -81,7 +82,7 @@ public class crear extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(98, 142, 144));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,10 +165,14 @@ public class crear extends javax.swing.JFrame {
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
         if (name.getText().isEmpty()) {
             info.setText("¡FAVOR INGRESAR NOMBRE!");
+        } else if (graf.existe(name.getText().trim())) {
+            info.setText("¡NOMBRE YA EXISTENTE!");
+
         } else {
-            Maker.graf.aumentar();
             //Lienzo.getNodos().add(new vertices(name.getText(), Maker.graf.nvertices, xv, yv));
-            Maker.graf.vertices.add(new vertices(name.getText(), Maker.graf.nvertices, xv, yv));
+            Maker.graf.aumentar();
+            Maker.graf.vertices.add(new vertices(name.getText().trim(), Maker.graf.nvertices, xv, yv));
+
             System.out.println(name.getText());
             obl.repaint();
             //vertices t = new vertices(name.getText(), Maker.graf.nvertices, xv, yv);

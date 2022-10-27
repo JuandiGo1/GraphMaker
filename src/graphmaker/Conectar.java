@@ -49,9 +49,9 @@ public class Conectar extends javax.swing.JFrame {
         setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(98, 142, 144));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agregar arista");
 
@@ -75,7 +75,8 @@ public class Conectar extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Peso de arista");
 
-        crear.setBackground(new java.awt.Color(0, 153, 153));
+        crear.setBackground(new java.awt.Color(98, 142, 144));
+        crear.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         crear.setForeground(new java.awt.Color(255, 255, 255));
         crear.setText("CREAR");
         crear.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +110,7 @@ public class Conectar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(crear)
                 .addGap(16, 16, 16))
         );
@@ -122,8 +123,10 @@ public class Conectar extends javax.swing.JFrame {
         if (peso.getText().isEmpty()) {
             aristas nueva = new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, 1,V1,V2, Color.black); //Si no hay valor asigna 1
             Lienzo.getEnlaces().add(nueva);
+            V1.ady.add(V2);
             V1.conexiones.add(nueva);
             V2.conexiones.add(nueva);
+            V2.ady.add(V1);
         } else {
             int cost=Integer.parseInt(peso.getText());
             aristas nueva= new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost,V1,V2, Color.black);
