@@ -1,7 +1,7 @@
 # GraphMaker
 Aplicación para crear y visualizar grafos
 
-## Funciones
+### Funciones
 - Añadir vértices: Podrás dibujar un vertice con dar click en el espacio de trabajo
 - Enumeración de vertices: Permite elegir entre asignar automaticamente el nombre de los vertices como letras y numeros o asignar un nombre personalizado
 - Añadir Aristas: Permite conectar vertices ya existentes en el espacio de trabajo asignandole un peso
