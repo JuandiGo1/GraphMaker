@@ -139,7 +139,9 @@ public class Conectar extends javax.swing.JFrame {
             V2.ady.add(V1);
             obl.repaint();
             this.dispose();
-        } else if(isNumeric(peso.getText())){
+        } else if(Integer.parseInt(peso.getText())<0){
+            JOptionPane.showMessageDialog(null, "LA ENTRADA DEBE SER NUMEROS POSITIVOS", "OJITO", JOptionPane.WARNING_MESSAGE);
+        }else if(isNumeric(peso.getText())){
             int cost=Integer.parseInt(peso.getText());
             aristas nueva= new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost,V1,V2, Color.black);
             V1.conexiones.add(nueva);
@@ -150,7 +152,7 @@ public class Conectar extends javax.swing.JFrame {
             obl.repaint();
             this.dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "LA ENTRADA DEBE SER NUMÉRICA", "OJITO", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "LA ENTRADA DEBE SER NUMERICA", "OJITO", JOptionPane.WARNING_MESSAGE);
         }
         obl.repaint();
         

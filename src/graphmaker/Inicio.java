@@ -174,8 +174,8 @@ public class Inicio extends javax.swing.JFrame {
             creditosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(creditosLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addComponent(jLabel1)
+                .addGap(21, 21, 21)
                 .addGroup(creditosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,8 +206,8 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(creditosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(creditosLayout.createSequentialGroup()
                     .addGap(41, 41, 41)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(411, Short.MAX_VALUE)))
+                    .addComponent(jLabel12)
+                    .addContainerGap(398, Short.MAX_VALUE)))
         );
 
         jButton1.setBackground(new java.awt.Color(102, 102, 102));
@@ -249,7 +249,7 @@ public class Inicio extends javax.swing.JFrame {
         iniLayout.setVerticalGroup(
             iniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(iniLayout.createSequentialGroup()
-                .addContainerGap(357, Short.MAX_VALUE)
+                .addContainerGap(371, Short.MAX_VALUE)
                 .addGroup(iniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, iniLayout.createSequentialGroup()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
