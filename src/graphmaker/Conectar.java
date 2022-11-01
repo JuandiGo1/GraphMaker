@@ -20,12 +20,13 @@ public class Conectar extends javax.swing.JFrame {
      */
     Point pInicio, pfin;
     vertices V1, V2;
+
     public Conectar(Point p1, Point p2, vertices v1, vertices v2) {
         initComponents();
         pInicio = p1;
         pfin = p2;
-        V1=v1;
-        V2=v2;
+        V1 = v1;
+        V2 = v2;
     }
 
     /**
@@ -120,18 +121,18 @@ public class Conectar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private static boolean isNumeric(String cadena){
-	try {
-		Integer.parseInt(cadena);
-		return true;
-	} catch (NumberFormatException nfe){
-		return false;
-	}
-}
-    
+    private static boolean isNumeric(String cadena) {
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
         if (peso.getText().isEmpty()) {
-            aristas nueva = new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, 1,V1,V2, Color.black); //Si no hay valor asigna 1
+            aristas nueva = new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, 1, V1, V2, Color.black); //Si no hay valor asigna 1
             Lienzo.getEnlaces().add(nueva);
             V1.ady.add(V2);
             V1.conexiones.add(nueva);
@@ -139,23 +140,24 @@ public class Conectar extends javax.swing.JFrame {
             V2.ady.add(V1);
             obl.repaint();
             this.dispose();
-        } else if(Integer.parseInt(peso.getText())<0){
-            JOptionPane.showMessageDialog(null, "LA ENTRADA DEBE SER NUMEROS POSITIVOS", "OJITO", JOptionPane.WARNING_MESSAGE);
-        }else if(isNumeric(peso.getText())){
-            int cost=Integer.parseInt(peso.getText());
-            aristas nueva= new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost,V1,V2, Color.black);
-            V1.conexiones.add(nueva);
-            V1.ady.add(V2);
-            V2.conexiones.add(nueva);
-            V2.ady.add(V1);
-            Lienzo.getEnlaces().add(nueva);
-            obl.repaint();
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "LA ENTRADA DEBE SER NUMERICA", "OJITO", JOptionPane.WARNING_MESSAGE);
+        } else {
+            if (isNumeric(peso.getText()) && Integer.parseInt(peso.getText()) > 0) {
+                int cost = Integer.parseInt(peso.getText());
+                aristas nueva = new aristas(pInicio.x, pInicio.y, pfin.x, pfin.y, cost, V1, V2, Color.black);
+                V1.conexiones.add(nueva);
+                V1.ady.add(V2);
+                V2.conexiones.add(nueva);
+                V2.ady.add(V1);
+                Lienzo.getEnlaces().add(nueva);
+                obl.repaint();
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "LA ENTRADA DEBE SER NUMERICA Y MAYOR QUE CERO", "OJITO", JOptionPane.WARNING_MESSAGE);
+            }
+
         }
         obl.repaint();
-        
+
     }//GEN-LAST:event_crearActionPerformed
 
     /**
