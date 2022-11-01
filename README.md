@@ -31,3 +31,6 @@ Aplicación para crear y visualizar grafos
 - Juan Maestre
 - Fernando Valencia
 - Gabriela Moreno
+
+## JDK NECESARIO
+- JDK 18: https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html
