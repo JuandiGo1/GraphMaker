@@ -1,6 +1,8 @@
 # GraphMaker
 Aplicación para crear y visualizar grafos
 
+Nota: Descargar zip del master.
+
 ### Funciones
 - Añadir vértices: Podrás dibujar un vertice con dar click en el espacio de trabajo
 
